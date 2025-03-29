@@ -19,37 +19,46 @@ const Resume = () => {
       pdf.save("Azeez_Oyegoke_Resume.pdf");
     }
   };
-  
-  
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
       <button
         onClick={() => handleDownload()}
-        className="mb-4 px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700"
+        className="mb-4 px-6 py-2 bg-[#3978A3] text-white rounded-lg shadow-md hover:[#1E4369] cursor-pointer"
       >
         Download as PDF
       </button>
       <div
         ref={resumeRef}
-        className="bg-white shadow-lg p-8 rounded-lg max-w-3xl w-full"
+        className="bg-[#000000] shadow-lg p-8 rounded-lg max-w-3xl w-full"
       >
         <h1 className="text-3xl font-bold text-center text-gray-900">
           Azeez Oyegoke
         </h1>
         <div className="text-center text-gray-700">
-          <Link href="mailto:oyegoke.a18@example.com">
+          <Link className="links" href="mailto:oyegoke.a18@example.com">
             oyegoke.a18@example.com
           </Link>{" "}
-          | 08136023232|
           <Link
+            className="links"
+            href="https://wa.me/2348136023232"
+            target="_blank"
+          >
+            | 08136023232 |
+          </Link>{" "}
+          <Link
+            className="links"
             href="https://www.linkedin.com/in/azeez-oyegoke-434716204/"
             target="_blank"
           >
             LinkedIn
           </Link>{" "}
           |
-          <Link href="https:github.com/harteyhitman/" target="_blank">
+          <Link
+            className="links"
+            href="https:github.com/harteyhitman/"
+            target="_blank"
+          >
             GitHub
           </Link>
         </div>
@@ -181,82 +190,101 @@ const Resume = () => {
             Notable Projects
           </h2>
           <div className="mt-2">
+            <h3 className="font-semibold">Simple Product Store</h3>
+            <ul className="list-disc pl-5 text-gray-700">
+              <li>
+                Developed a store that lists user information and products with
+                age restrictions.
+              </li>
+              <li>
+                Simulated API calls for asynchronous data fetching and
+                processing.
+              </li>
+            </ul>
+          </div>
+          <div className="mt-2">
+            <h3 className="font-semibold">Depression App </h3>
+            <ul className="list-disc pl-5 text-gray-700">
+              <li>
+                Designed and developed a full-stack mental health application
+                using NestJS and Next.js.
+              </li>
+              <li>
+                Implemented Zustand for state management and SCSS for styling.
+              </li>
+              <li>
+                Developed an admin page, login, and signup functionalities.
+              </li>
+            </ul>
+          </div>
+          <div className="mt-2">
             <h3 className="font-semibold">
-            Simple Product Store
+              TaskMaster (Software Engineering Capstone Project){" "}
             </h3>
             <ul className="list-disc pl-5 text-gray-700">
               <li>
-              Developed a store that lists user information and products with age restrictions.
+                Built a full-stack task management system using Next.js and mock
+                data for backend.
               </li>
               <li>
-              Simulated API calls for asynchronous data fetching and processing.
-              </li>
-            </ul>
-          </div>
-          <div className="mt-2">
-            <h3 className="font-semibold">
-            Depression App            </h3>
-            <ul className="list-disc pl-5 text-gray-700">
-              <li>
-              Designed and developed a full-stack mental health application using NestJS and Next.js.
+                Implemented user authentication, task creation, and filtering
+                functionalities.
               </li>
               <li>
-              Implemented Zustand for state management and SCSS for styling.</li>
-              <li>
-              Developed an admin page, login, and signup functionalities.</li>
-            </ul>
-          </div>
-          <div className="mt-2">
-            <h3 className="font-semibold">
-            TaskMaster (Software Engineering Capstone Project)            </h3>
-            <ul className="list-disc pl-5 text-gray-700">
-              <li>
-              Built a full-stack task management system using Next.js and mock data for backend.
+                Deployed frontend on Vercel/Netlify and backend on Fly.io.
               </li>
-              <li>
-              Implemented user authentication, task creation, and filtering functionalities.</li>
-              <li>
-              Deployed frontend on Vercel/Netlify and backend on Fly.io.</li>
             </ul>
           </div>
         </section>
 
         <section className="mt-6">
-        <div>  
-          <h2 className="text-2xl font-semibold mb-2">Education & Certifications</h2>
-          <ul>
-            <li>High National Diploma,  Rufus Giwa Polytechnic Owo – 2017</li>
-            <li>Software Engineering Capstone Project, 3mtt – 2024</li>
-            <li>Backend Development (Ongoing Study)</li>
-          </ul>
+          <div>
+            <h2 className="text-2xl font-semibold border-b pb-2 mb-2">
+              Education & Certifications
+            </h2>
+            <ul>
+              <li>
+                High National Diploma, Rufus Giwa Polytechnic Owo – 2017
+              </li>
+              <li>
+                Software Engineering Capstone Project, 3mtt – 2024
+              </li>
+              <li>Backend Development (Ongoing Study)</li>
+            </ul>
           </div>
-        <div>  
-          <h2 className="text-2xl font-semibold mb-2">Soft Skills</h2>
-          <ul>
-            <li>Problem-solving & analytical thinking</li>
-            <li>Effective communication & collaboration</li>
-            <li>Adaptability & continuous learning</li>
-            <li>Attention to detail</li>
-            <li>Strong project management skills</li>
-          </ul>
+          <div>
+            <h2 className="text-2xl font-semibold border-b pb-2 mb-2">
+              Soft Skills
+            </h2>
+            <ul>
+              <li>Problem-solving & analytical thinking</li>
+              <li>Effective communication & collaboration</li>
+              <li>Adaptability & continuous learning</li>
+              <li>Attention to detail</li>
+              <li>Strong project management skills</li>
+            </ul>
           </div>
-        <div>  
-          <h2 className="text-2xl font-semibold mb-2">Languages</h2>
-          <ul>
-            <li>English (Fluent)</li>
-            <li>Yoruba (Fluent)</li>
-            <li>Spanish (Beginner - Learning)</li>
-            <li>Arabic (Beginner - Learning)</li>
-          </ul>
+          <div>
+            <h2 className="text-2xl font-semibold border-b pb-2 mb-2">
+              Languages
+            </h2>
+            <ul>
+              <li>English (Fluent)</li>
+              <li>Yoruba (Fluent)</li>
+              <li>Spanish (Beginner - Learning)</li>
+              <li>Arabic (Beginner - Learning)</li>
+            </ul>
           </div>
-        <div>  
-          <h2 className="text-2xl font-semibold mb-2">Interests</h2>
-          <ul>
-            <li>Open-source contributions</li>
-            <li>Blogging about web development</li>
-            <li>Learning backend technologies</li>
-            <li>Content creation on food security & natural herbs</li>
-          </ul>
+          <div>
+            <h2 className="text-2xl font-semibold border-b pb-2 mb-2">
+              Interests
+            </h2>
+            <ul>
+              <li>Open-source contributions</li>
+              <li>Blogging about web development</li>
+              <li>Learning backend technologies</li>
+              <li>Content creation on food security & natural herbs</li>
+            </ul>
           </div>
         </section>
       </div>
