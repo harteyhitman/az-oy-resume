@@ -9,14 +9,14 @@ const Resume = () => {
 
   const handleDownload = () => {
     if (resumeRef.current) {
-      const pdf = new jsPDF("p", "mm", "a4");
+      const pdf = new jsPDF();
       pdf.html(resumeRef.current, {
         callback: (doc) => {
           doc.save("Azeez_Oyegoke_Resume.pdf");
         },
-        x: 10,
-        y: 10,
-        width: 190, // Adjust width to fit content properly
+        // x: 100,
+        // y: 100,
+        // width: 900, // Adjust width to fit content properly
       });
     }
   };
