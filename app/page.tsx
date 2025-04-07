@@ -1,33 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 const Resume = () => {
   const resumeRef = useRef<HTMLDivElement | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (resumeRef.current) {
-      const pdf = new jsPDF();
-      pdf.html(resumeRef.current, {
-        callback: (doc) => {
-          doc.save("Azeez_Oyegoke_Resume.pdf");
-        },
-        // x: 100,
-        // y: 100,
-        // width: 900, // Adjust width to fit content properly
-      });
+      setIsDownloading(true);
+      try {
+        const canvas = await html2canvas(resumeRef.current, { scale: 6 });
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+        const imgWidth = 210;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.save("Azeez_Oyegoke_Resume.pdf");
+      } catch (error) {
+        console.error("Error generating PDF:", error);
+      } finally {
+        setIsDownloading(false);
+      }
     }
   };
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
       <button
-        onClick={() => handleDownload()}
-        className="mb-4 px-6 py-2 bg-[#3978A3] text-white rounded-lg shadow-md hover:bg-[#1E4369] cursor-pointer"
+        onClick={handleDownload}
+        className={`mb-4 px-6 py-2 rounded-lg shadow-md text-white ${
+          isDownloading ? "bg-gray-500 cursor-not-allowed" : "bg-[#3978A3] hover:bg-[#1E4369] cursor-pointer"
+        }`}
+        disabled={isDownloading}
       >
-        Download as PDF
+        {isDownloading ? "Downloading..." : "Download as PDF"}
       </button>
       <div
         ref={resumeRef}
@@ -38,7 +48,7 @@ const Resume = () => {
         </h1>
         <div className="text-center text-gray-700">
           <Link className="links" href="mailto:oyegoke.a18@example.com">
-            oyegoke.a18@gmail.com
+            oyegoke.a18@example.com
           </Link>{" "}
           <Link
             className="links"
