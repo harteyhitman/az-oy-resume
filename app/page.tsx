@@ -78,7 +78,7 @@ const Resume = () => {
           <h2 className="text-xl font-semibold border-b pb-2">
             Professional Summary
           </h2>
-          <p className="text-gray-700 mt-2">
+          <p className="mt-2">
             Highly skilled Frontend Developer with over 3 years of experience in
             building dynamic and responsive web applications using React,
             Next.js, and TypeScript. Passionate about creating seamless user
