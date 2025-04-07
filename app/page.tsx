@@ -2,21 +2,22 @@
 
 import Link from "next/link";
 import React, { useRef } from "react";
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 const Resume = () => {
   const resumeRef = useRef<HTMLDivElement | null>(null);
 
-  const handleDownload = async () => {
+  const handleDownload = () => {
     if (resumeRef.current) {
-      const canvas = await html2canvas(resumeRef.current, { scale: 2 });
-      const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 210;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-      pdf.save("Azeez_Oyegoke_Resume.pdf");
+      pdf.html(resumeRef.current, {
+        callback: (doc) => {
+          doc.save("Azeez_Oyegoke_Resume.pdf");
+        },
+        x: 10,
+        y: 10,
+        width: 190, // Adjust width to fit content properly
+      });
     }
   };
 
