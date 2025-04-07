@@ -38,7 +38,7 @@ const Resume = () => {
         </h1>
         <div className="text-center text-gray-700">
           <Link className="links" href="mailto:oyegoke.a18@example.com">
-            oyegoke.a18@example.com
+            oyegoke.a18@gmail.com
           </Link>{" "}
           <Link
             className="links"
