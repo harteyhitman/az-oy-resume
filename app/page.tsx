@@ -24,7 +24,7 @@ const Resume = () => {
     <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
       <button
         onClick={() => handleDownload()}
-        className="mb-4 px-6 py-2 bg-[#3978A3] text-white rounded-lg shadow-md hover:[#1E4369] cursor-pointer"
+        className="mb-4 px-6 py-2 bg-[#3978A3] text-white rounded-lg shadow-md hover:bg-[#1E4369] cursor-pointer"
       >
         Download as PDF
       </button>
