@@ -13,12 +13,22 @@ const Resume = () => {
     if (resumeRef.current) {
       setIsDownloading(true);
       try {
-        const canvas = await html2canvas(resumeRef.current, { scale: 6 });
-        const imgData = canvas.toDataURL("image/png");
+        const canvas = await html2canvas(resumeRef.current, { scale: 2 }); // Reduced scale for smaller file size
+        const imgData = canvas.toDataURL("image/jpeg", 0.8); // Use JPEG format with 80% quality for compression
         const pdf = new jsPDF("p", "mm", "a4");
+        const pageHeight = pdf.internal.pageSize.height;
         const imgWidth = 210;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+        let position = 0;
+        pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+
+        while (position + imgHeight > pageHeight) {
+          position -= pageHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+        }
+
         pdf.save("Azeez_Oyegoke_Resume.pdf");
       } catch (error) {
         console.error("Error generating PDF:", error);
