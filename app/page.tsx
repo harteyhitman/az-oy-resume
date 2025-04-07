@@ -58,7 +58,7 @@ const Resume = () => {
         </h1>
         <div className="text-center text-gray-700">
           <Link className="links" href="mailto:oyegoke.a18@example.com">
-            oyegoke.a18@example.com
+            oyegoke.a18@gmail.com
           </Link>{" "}
           <Link
             className="links"
@@ -89,7 +89,7 @@ const Resume = () => {
             Professional Summary
           </h2>
           <p className="mt-2">
-            Highly skilled Frontend Developer with over 3 years of experience in
+            Highly skilled Frontend Developer with over 3+ years of experience in
             building dynamic and responsive web applications using React,
             Next.js, and TypeScript. Passionate about creating seamless user
             experiences and implementing scalable, maintainable code. Strong
@@ -138,7 +138,7 @@ const Resume = () => {
             Work Experience
           </h2>
           <div className="mt-2">
-            <h3 className="font-semibold">Frontend Developer | Freelance</h3>
+            <h3 className="font-semibold">Frontend Developer | Rogue Devtech</h3>
             <p className="text-gray-600">March 2023 - Present</p>
             <ul className="list-disc pl-5 text-gray-700">
               <li>
